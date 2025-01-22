@@ -1,0 +1,5 @@
+vulnerabilities:
+  # Override vulnerability findings whose CVE-ID is CVE-0000-0000
+  - rule:
+      vulnerability: CVE-2023-6879
+    reason: Not executed

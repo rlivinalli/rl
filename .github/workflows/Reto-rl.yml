@@ -28,7 +28,8 @@ jobs:
         env:
           TMAS_API_KEY: ${{ secrets.TMAS_API_KEY }}
         run: |
-          ./tmas scan docker:nginx:latest -VMS --saveSBOM > results.json
+          ./tmas scan docker:ubuntu/nginx:1.18-20.04_beta -VMS --saveSBOM > results.json
+        #  ./tmas scan docker:nginx:latest -VMS --saveSBOM > results.json
   
       - name: Upload Json as Artifact
         uses: actions/upload-artifact@v4

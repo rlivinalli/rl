@@ -16,7 +16,7 @@ jobs:
 
       - name: Download Docker image
         run: |
-          docker pull ubuntu/nginx:1.27-24.04_stable
+          docker pull ubuntu/nginx:1.18-20.04_beta
           docker images
 
       - name: Download Artifact Scanner

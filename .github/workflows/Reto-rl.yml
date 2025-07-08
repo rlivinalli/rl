@@ -16,7 +16,7 @@ jobs:
 
       - name: Download Docker image
         run: |
-          docker pull nginx/nginx-ingress
+          docker pull nginx
           docker images
 
       - name: Download Artifact Scanner

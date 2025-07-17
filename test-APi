@@ -3,7 +3,7 @@ import json
 
 url_base = 'https://api.xdr.trendmicro.com'
 url_path = '/v2.0/xdr/workbench/workbenchHistories'
-token = 'YOUR_TOKEN'
+token = 'V1_DAPI'
 
 query_params = {
     'startTime': 'YOUR_STARTTIME (string)',

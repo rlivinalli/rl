@@ -1,0 +1,36 @@
+import requests
+import json
+
+url_base = 'https://api.xdr.trendmicro.com'
+url_path = '/v2.0/xdr/workbench/workbenchHistories'
+token = 'YOUR_TOKEN'
+
+query_params = {
+    'startTime': 'YOUR_STARTTIME (string)',
+    'endTime': 'YOUR_ENDTIME (string)',
+    'status': 'YOUR_STATUS (string)',
+    'investigationResult': 'YOUR_INVESTIGATIONRESULT (string)',
+    'sortBy': 'YOUR_SORTBY (string)',
+    'queryTimeField': 'YOUR_QUERYTIMEFIELD (string)',
+    'searchBy': 'YOUR_SEARCHBY (string)',
+    'keyword': 'YOUR_KEYWORD (string)',
+    'modelType': 'YOUR_MODELTYPE (string)',
+    'offset': 'YOUR_OFFSET (integer)',
+    'limit': 'YOUR_LIMIT (integer)'
+}
+headers = {
+    'Authorization': 'Bearer ' + token,
+    'TMV1-Custom-Tag-Filter': 'YOUR_CUSTOM-TAG-FILTER (string)',
+    'TMV1-Platform-Tag-Filter': 'YOUR_PLATFORM-TAG-FILTER (string)'
+}
+
+r = requests.get(url_base + url_path, params=query_params, headers=headers)
+
+print(r.status_code)
+for k, v in r.headers.items():
+    print(f'{k}: {v}')
+print('')
+if 'application/json' in r.headers.get('Content-Type', '') and len(r.content):
+    print(json.dumps(r.json(), indent=4))
+else:
+    print(r.text)
